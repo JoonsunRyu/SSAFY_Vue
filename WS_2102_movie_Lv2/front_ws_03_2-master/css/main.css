@@ -1,0 +1,109 @@
+/* 초기화 작업 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #787878;
+  }
+  
+  /* header 태그 안에 CSS 속성 */
+  header {
+    height: 70px;
+    background-color: lightskyblue;
+    color: black;
+    line-height: 70px;
+    padding: 0px 30px;
+  }
+  
+  .header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .form {
+    position: relative;
+    text-align: center;
+  }
+  
+
+  /* nav 태그 속성 */
+  .title {
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+
+  /* main 태그 CSS 속성 */
+  .content {
+    display: flex;
+  }
+
+  
+  /* section 태그 CSS 속성  */
+  section {
+    flex: 3; /* 영화 목록 영역 */
+    margin-right: 20px;
+}
+  section ul {
+    display: flex;
+    flex-wrap: wrap; /* 반응형 배치 */
+    list-style-type: none;
+    padding: 0;
+}
+
+section li {
+    width: calc(33.333% - 10px); /* 3개 열로 배치, 여백 포함 */
+    margin: 5px;
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* 수직 방향으로 정렬 */
+}
+
+.movie {
+    display: flex; /* 플렉스 박스 사용 */
+    justify-content: space-between; /* 정보와 버튼을 양쪽에 배치 */
+    align-items: center; /* 수직 중앙 정렬 */
+}
+
+button {
+    margin-left :0cap; /* 버튼을 오른쪽 끝으로 밀기 */
+    margin:5px;
+    padding: 8px;
+}
+
+section img {
+    max-width: 100%; /* 이미지 반응형 */
+    height: auto;
+}
+
+.jjim {
+  width: 500px;
+}
+
+  /* footer 태그 안에 CSS 속성 */
+  footer {
+    background-color: lightskyblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    height: 50px;
+    line-height: 50px;
+  }
+  
+  .footer-info {
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between; /* 정보와 버튼을 양쪽에 배치 */
+    align-items: center; /* 수직 중앙 정렬 */
+  }
