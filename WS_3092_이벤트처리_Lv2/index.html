@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- 화면배치 설정(필요 X) -->
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <button id="btn" v-on:click="increment">{{count}}</button>  <!-- {{ }} 쓰는 것을 보관법이라고 함 -->
+    <button v-on:click="increment">+</button>
+    <button @click="decrement">-</button>  <!-- v-on: 대신 @ 써도 됨 -->
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+        const count = ref(0)  // 반응형으로!
+        const increment = function() {
+          count.value++;  // JS 안쪽에서는 .value로 값에 접근해야 함
+        }
+        const decrement = function() {
+          count.value--;
+        }
+        return {
+          count,
+          increment,
+          decrement
+        }
+      }
+    })
+    
+    app.mount('#app')
+  </script>
+
+</body>
+</html>
