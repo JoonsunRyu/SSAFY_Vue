@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 바인딩의 기본, 콧수염 바인딩 -->
+      <p>{{msg}}</p>
+      
+      <!-- Raw HTML 작성하기 -->
+      <p>{{rawHTML}}</p>
+      <div v-html="rawHTML"></div>  <!-- v-html="{{rawHTML}}"" 형식은 사용 불가 -->
+
+      <!-- 속성 바인딩 -->
+      <div v-bind:id="dynamicId">동적ID 1</div>
+
+      <!-- JavaScript 표현식 -->
+      <p>{{number + 1}}</p>
+      <p>{{ok ? 'Yes' : 'No'}}</p>
+      <p>{{msg.split('')}}</p>
+      <p>{{msg.split('').reverse()}}</p>
+      <p>{{msg.split('').reverse().join('')}}</p>
+      <p :id="`list-${number}`">동적ID 2</p>
+      <p v-if="ok">이거 보이니?</p>      <!-- v-if와 v-show의 미묘한 차이가 존재함 -->
+      <p v-show="ok">이거도 보이니?</p>
+
+    </div>
+    <script>
+      const { createApp, ref } = Vue;
+
+      const app = createApp({
+        setup() {
+          const msg = ref("Hello Vue!");
+          const rawHTML = ref('<span style="color:red">이것은 빨강이어야 합니다.</span>');
+          const dynamicId = ref("my-id");
+          const number = ref(10);
+          const ok = ref(true);
+
+          return {
+            msg,
+            rawHTML,
+            dynamicId,
+            number,
+            ok,
+          };
+        },
+      });
+      app.mount("#app");  // 10행 <div>의 Selector가 들어감
+    </script>
+  </body>
+</html>
