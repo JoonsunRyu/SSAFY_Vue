@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+
+  <body>
+    <div id="app">                                    <!-- 안 쓴다고 에러가 나지는 않지만... -->
+      <div v-for="person in items" :key="person.id">  <!-- person을 고유하기 식별할 수 있는 key 작성하는게 좋음 -->
+        {{person.name}}
+      </div>
+      <hr>
+
+      <!-- 이 방법으로 하지 말 것 (삭제 시 인덱스가 땡겨져서 엉킬 수 있음) -->
+      <div v-for="(person, index) in items" :key="index">  <!-- key에 index 때리면 안 됨!! -->
+        {{person.name}}
+      </div>
+    </div>
+    <script>
+      const { createApp, ref } = Vue;
+
+      const app = createApp({
+        setup() {
+          let id = 0;
+
+          const items = ref([
+            { id: id++, name: "Alice" },
+            { id: id++, name: "Bella" },
+          ]);
+
+          return {
+            items,
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>
